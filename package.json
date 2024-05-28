@@ -1,0 +1,10 @@
+{
+  "name": "my-contacts",
+  "version": "1.0.0",
+  "description": "my-contacts - devBoost api",
+  "main": "src/index.js",
+  "repository": "https://github.com/BernardoMoschen/NodeExpressReroll",
+  "author": "BernardoMoschen",
+  "license": "MIT",
+  "private": true
+}
