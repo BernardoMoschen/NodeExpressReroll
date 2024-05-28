@@ -6,5 +6,8 @@
   "repository": "https://github.com/BernardoMoschen/NodeExpressReroll",
   "author": "BernardoMoschen",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
