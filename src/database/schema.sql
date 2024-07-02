@@ -15,3 +15,10 @@ CREATE TABLE IF NOT EXISTS contacts (
   category_id UUID,
   FOREIGN KEY(category_id) REFERENCES categories(id)
 );
+
+
+-- INSERT INTO categories(name)
+-- values ('family')
+
+-- INSERT INTO contacts (name, email, phone, category_id)
+-- values ('Bernardo', 'bernardo@email.com','123456789', 1)

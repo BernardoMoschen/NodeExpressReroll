@@ -1,8 +1,9 @@
 const ContactsRepository = require('../repositories/ContactsRepository')
 
 class ContactController {
-  async index(_req, res) {
-    const contacts = await ContactsRepository.findAll()
+  async index(req, res) {
+    const { orderBy } = req.query
+    const contacts = await ContactsRepository.findAll(orderBy)
     res.json(contacts)
   }
 
@@ -26,20 +27,19 @@ class ContactController {
     if (!name) {
       return res.status(400).json({ error: 'Name is required.' })
     }
-
-    const contactExists = await ContactsRepository.findByEmail(email)
-    if (contactExists) {
+    const emailTaken = await ContactsRepository.findByEmail(email)
+    if (emailTaken) {
       return res.status(404).json({ error: 'This email already exists.' })
     }
 
-    const contact = await ContactsRepository.create({
+    const storedContact = await ContactsRepository.create({
       name,
       email,
       phone,
       category_id,
     })
 
-    res.json(contact)
+    res.json(storedContact)
   }
 
   async update(req, res) {
@@ -63,7 +63,7 @@ class ContactController {
       category_id,
     })
 
-    res.json(contact)
+    res.status(200).json(contact)
   }
 
   async delete(req, res) {
