@@ -16,7 +16,8 @@ class ContactsRepository {
       `SELECT contacts.*, categories.name AS category_name
       FROM contacts
       LEFT JOIN categories on categories.id = category_id
-      contacts WHERE contacts.id = $1`,
+      WHERE contacts.id = $1
+      `,
       [id],
     )
     return row
